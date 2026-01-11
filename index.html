@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Reabetswe ❤️ | Hala Madrid</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        :root {
+            --rm-white: #ffffff;
+            --rm-purple: #6a0dad;
+            --rm-gold: #d4af37;
+            --rm-dark: #0a0a2a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, var(--rm-dark) 0%, #1a1a3a 100%);
+            color: var(--rm-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: linear-gradient(rgba(10,10,42,0.85), rgba(106,13,173,0.2)), url('https://images.unsplash.com/photo-1598880940080-ff9a29891b85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=30');
+            background-size: cover;
+            background-position: center;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .logo {
+            width: 120px;
+            height: 120px;
+            background: var(--rm-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            box-shadow: 0 0 30px var(--rm-gold);
+            border: 5px solid var(--rm-purple);
+        }
+        .logo i { font-size: 60px; color: var(--rm-purple); }
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 3.5rem;
+            background: linear-gradient(to right, var(--rm-white), var(--rm-gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .tagline {
+            font-size: 1.5rem;
+            color: var(--rm-gold);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--rm-white);
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--rm-purple), var(--rm-gold));
+            border-radius: 2px;
+        }
+        section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(106, 13, 173, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        section:hover { transform: translateY(-5px); }
+        .heart-message { font-size: 1.2rem; }
+        .highlight {
+            color: var(--rm-gold);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+        .signature {
+            text-align: right;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            color: var(--rm-gold);
+            margin-top: 2rem;
+            font-style: italic;
+        }
+        .trophy-wall {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 2rem 0;
+        }
+        .trophy {
+            font-size: 3rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.5));
+        }
+        .trophy:hover {
+            transform: scale(1.2) rotate(15deg);
+            filter: drop-shadow(0 0 15px var(--rm-gold));
+        }
+        .counter {
+            font-size: 1.2rem;
+            text-align: center;
+            margin-top: 1rem;
+            color: var(--rm-gold);
+        }
+        .coupon-container {
+            display: flex;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+        .coupon {
+            background: linear-gradient(135deg, var(--rm-white) 0%, #f0f0f0 100%);
+            color: var(--rm-dark);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 5px dashed var(--rm-purple);
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+        .coupon:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(106, 13, 173, 0.4);
+        }
+        .coupon:before {
+            content: 'VIP PASS';
+            position: absolute;
+            top: 20px;
+            right: -40px;
+            background: var(--rm-purple);
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        .coupon h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            color: var(--rm-purple);
+            margin-bottom: 1rem;
+        }
+        .coupon-list {
+            text-align: left;
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+        .coupon-list li {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            position: relative;
+        }
+        .coupon-list li:before {
+            content: '✓';
+            color: var(--rm-gold);
+            font-weight: bold;
+            position: absolute;
+            left: -1.5rem;
+        }
+        .reveal-btn {
+            background: linear-gradient(to right, var(--rm-purple), #8a2be2);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(106, 13, 173, 0.4);
+        }
+        .reveal-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(106, 13, 173, 0.6);
+        }
+        .hidden-message {
+            display: none;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 15px;
+            border-left: 5px solid var(--rm-gold);
+            animation: fadeIn 1s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(106, 13, 173, 0.3);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        .hearts {
+            color: #ff6b6b;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            section { padding: 2rem; }
+            .coupon { padding: 2rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-crown"></i>
+            </div>
+            <h1>HALA MADRID, REABETSWE</h1>
+            <p class="tagline">An unofficial morale station for the world's best Madridista</p>
+            <p><em>From Remoratile, with all my love ❤️</em></p>
+        </header>
+
+        <section>
+            <h2>To My Favorite Fan</h2>
+            <div class="heart-message">
+                <p>I know this one hurts, Reabetswe. That heavy feeling in your chest? It's proof of how much you care—how deeply you invest your passion in that iconic white jersey.</p>
+                <p class="highlight">But a true Madridista knows this isn't the end. It's just a single page in a much larger, legendary history.</p>
+                <p>This club is literally built on <em>remontadas</em>. On moments when everyone counted them out, only for them to rise with more heart than ever. <strong>Your fan spirit has that same DNA.</strong> Your loyalty, like the color of the kit, is pure and doesn't get stained by one result.</p>
+                <p>Watching you support your team shows me your heart: passionate, loyal, and resilient. That heart is a champion's heart, and win or lose, <span class="highlight">I am so incredibly proud to be on your team.</span></p>
+                <div class="signature">With all my love,<br>Remoratile</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Remember the Legacy</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 1rem;">Tap the trophies to remember what this club—and you as a fan—are made of:</p>
+            <div class="trophy-wall">
+                <div class="trophy" onclick="incrementCounter()"><i class="fas fa-trophy"></i></div>
+                <div class="trophy" onclick="incrementCounter()"><i class="fas fa-trophy"></i></div>
+                <div class="trophy" onclick="incrementCounter()"><i class="fas fa-trophy"></i></div>
+                <div class="trophy" onclick="incrementCounter()"><i class="fas fa-trophy"></i></div>
+            </div>
+            <div class="counter">
+                <p><strong id="clickCount">0</strong> Reminders of Real Madrid's Greatness</p>
+                <p><small><em>Keep clicking. The legacy is endless.</em></small></p>
+            </div>
+            <p style="text-align: center; margin-top: 2rem; font-size: 1.3rem; color: var(--rm-gold);">
+                <strong>This is just halftime.<br>¡A por la décima quinta!</strong>
+            </p>
+        </section>
+
+        <section>
+            <h2>Official Recovery Protocol</h2>
+            <p style="text-align: center; font-size: 1.2rem;">The manager (me) has mandated the following morale-boosting activities. Please present this pass to claim your rewards.</p>
+            
+            <div class="coupon-container">
+                <div class="coupon" onclick="revealMessage()">
+                    <h3>VIP FAN RECOVERY PASS</h3>
+                    <p><strong>Holder:</strong> Reabetswe<br><strong>Issued by:</strong> Remoratile</p>
+                    <ul class="coupon-list">
+                        <li>One (1) Extended Cuddle Marathon</li>
+                        <li>Your Choice of Takeout Feast</li>
+                        <li>Distraction Activity of Your Choice (Movie/Game/Walk)</li>
+                        <li>Unlimited Pep Talks & Shoulders to Lean On</li>
+                    </ul>
+                    <p><em>Valid immediately. No expiration.</em></p>
+                    <button class="reveal-btn">CLICK TO REVEAL MESSAGE</button>
+                    <div id="secretMessage" class="hidden-message">
+                        <p>Hey you. No matter what happens on any pitch, anywhere in the world, you are my win. You are my champion. I love you more than any trophy. ❤️<br>- Remoratile</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>This digital hug is officially licensed by love. <span class="hearts">❤️❤️❤️</span></p>
+            <p>Made for Reabetswe by Remoratile | Hala Madrid y Nada Más</p>
+        </footer>
+    </div>
+
+    <script>
+        let clickCount = 0;
+        const clickCounter = document.getElementById('clickCount');
+        
+        function incrementCounter() {
+            clickCount++;
+            clickCounter.textContent = clickCount;
+            
+            if (clickCount === 5 || clickCount === 10 || clickCount === 15) {
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 },
+                    colors: ['#ffffff', '#6a0dad', '#d4af37']
+                });
+            }
+        }
+
+        function revealMessage() {
+            const message = document.getElementById('secretMessage');
+            const button = document.querySelector('.reveal-btn');
+            
+            if (message.style.display === 'block') {
+                message.style.display = 'none';
+                button.textContent = 'CLICK TO REVEAL MESSAGE';
+            } else {
+                message.style.display = 'block';
+                button.textContent = 'CLICK TO HIDE MESSAGE';
+                
+                confetti({
+                    particleCount: 150,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 },
+                    colors: ['#ffffff', '#6a0dad', '#d4af37']
+                });
+                confetti({
+                    particleCount: 150,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 },
+                    colors: ['#ffffff', '#6a0dad', '#d4af37']
+                });
+            }
+        }
+
+        window.onload = function() {
+            setTimeout(() => {
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
+            }, 1000);
+        };
+    </script>
+</body>
+</html>
